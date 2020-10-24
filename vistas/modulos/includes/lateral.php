@@ -5,10 +5,23 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="vistas/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <?php
+
+            if($_SESSION["foto"] == ""){
+                    echo '
+                    <img src="vistas/img/administrator/default.jpg" class="img-circle" alt="User Image">';
+                }else{
+                    echo '
+                    <img src="'.$_SESSION["foto"].'" class="img-circle" alt="User Image">';
+                }
+
+
+                ?>
+          <!-- <img src="vistas/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"> -->
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <?php echo'<p>'; echo $_SESSION["nombre"]; echo '</p>'; ?>
+          
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>

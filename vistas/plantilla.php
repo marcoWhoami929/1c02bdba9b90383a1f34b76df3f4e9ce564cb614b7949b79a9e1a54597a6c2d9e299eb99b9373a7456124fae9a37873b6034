@@ -21,7 +21,7 @@ error_reporting(E_ALL);
     <!-- jvectormap -->
     <link rel="stylesheet" href="vistas/bower_components/jvectormap/jquery-jvectormap.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="vistas/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="vistas/dist/css/AdminLTE.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.css">
     <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
@@ -30,13 +30,17 @@ error_reporting(E_ALL);
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <!-- SweetAlert 2 https://sweetalert2.github.io/-->
     <script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js " > </script > 
+    <!-- iCheck -->
+  <link rel="stylesheet" href="vistas/plugins/iCheck/square/blue.css">
 
   </head>
 
-  <body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
+  
 
       <?php
+      if(isset($_SESSION["validarSesionBackend"]) && $_SESSION["validarSesionBackend"] === "ok"){
+        echo '<body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">';
 
         include "modulos/includes/cabezote.php";
         include "modulos/includes/configuraciones.php";
@@ -63,9 +67,17 @@ error_reporting(E_ALL);
 
          include "modulos/includes/footer.php";
 
+         echo '</div>
+    </body>';
+
+      }else{
+        include "modulos/login.php";
+      }
+        
+
      
       ?>
-    </div>
+
     <!-- jQuery 3 -->
     <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
@@ -93,6 +105,8 @@ error_reporting(E_ALL);
     <!-- DataTables -->
     <script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="vistas/plugins/iCheck/icheck.min.js"></script>
 
-  </body>
+  
 </html>
